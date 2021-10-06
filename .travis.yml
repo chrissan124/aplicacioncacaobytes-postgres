@@ -10,5 +10,4 @@ deploy:
   api_key: $HEROKU_API_KEY
   app: $APP
   on:
-    tags: true
     branch: develop
