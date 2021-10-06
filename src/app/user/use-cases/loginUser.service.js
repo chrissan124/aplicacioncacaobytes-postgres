@@ -11,29 +11,30 @@ class loginUserService {
     this.userRepository = userRepository
     this.roleService = getRolesService
   }
-  async loginUser(user) {
-    let foundUser = await this.userRepository.getAll({
-      email: user.email,
-      include: ['Status'],
-    })
+  async loginUser(user, time = null) {
+    if (user) {
+      let foundUser = await this.userRepository.getAll({
+        email: user.email,
+        include: ['Status'],
+      })
 
-    foundUser = foundUser.count ? foundUser.rows[0] : undefined
+      foundUser = foundUser.count ? foundUser.rows[0] : undefined
+      if (foundUser) {
+        if (foundUser.Status.name === statuses.SUSPENDED) {
+          throw new ForbiddenError('This user is blocked')
+        }
+        const verified = await checkPassword(user.password, foundUser.password)
 
-    if (foundUser) {
-      if (foundUser.Status.name === statuses.SUSPENDED) {
-        throw new ForbiddenError('This user is blocked')
-      }
-      const verified = await checkPassword(user.password, foundUser.password)
-
-      if (verified) {
-        const token = createToken(createUserPayload(foundUser))
-        const role = await this.roleService.getRole(foundUser.roleFk)
-        return {
-          token,
-          Role: role,
-          userId: foundUser.userId,
-          firstName: foundUser.firstName,
-          lastName: foundUser.lastName,
+        if (verified) {
+          const token = createToken(createUserPayload(foundUser), time)
+          const role = await this.roleService.getRole(foundUser.roleFk)
+          return {
+            token,
+            Role: role,
+            userId: foundUser.userId,
+            firstName: foundUser.firstName,
+            lastName: foundUser.lastName,
+          }
         }
       }
     }
