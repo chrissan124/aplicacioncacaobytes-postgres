@@ -1,10 +1,10 @@
 language: node_js
 node_js:
   - "14.18.0"
-scripts:
-# Se corren test por petición más no porque realmente haya uno en el proyecto. 
-  - "echo \"Test\""
-  - "npm run test" 
+# Habilitar esta sección cuándo se contemplen pruebas en el proceso de CI/CD
+#scripts: 
+  #- "echo \"Test\""
+  #- "npm run test" 
 deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY
