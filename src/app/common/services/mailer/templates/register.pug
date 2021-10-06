@@ -1,0 +1,11 @@
+extends layout.pug 
+
+block content
+  p.spaced Hi #{user.firstName},
+  p.spaced An admin has setup your account for Cacao's site. Head over to the link below to setup your password and get started!
+  p.spaced For safety reasons, you've got #[span.bold 72 hours] to confirm your account. 
+  a.centered(href=url target="_blank") 
+    button.spaced Sign Up
+  br 
+  p Kindest regards,
+  p -Cacao's Team 

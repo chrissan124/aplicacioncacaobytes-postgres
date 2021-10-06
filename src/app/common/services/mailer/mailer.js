@@ -15,14 +15,7 @@ const transporter = nodemailer.createTransport({
 function loadTemplate(templateName, context) {
   return new Promise((resolve, reject) => {
     email
-      .render(
-        path.join(
-          process.cwd(),
-          `${process.env.FILE_SRC}/template`,
-          templateName
-        ),
-        context
-      )
+      .render(path.join(__dirname, `/templates`, templateName), context)
       .then((result) => {
         resolve(result)
       })

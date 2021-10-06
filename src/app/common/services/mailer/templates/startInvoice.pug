@@ -1,0 +1,13 @@
+extends layout.pug 
+
+block content
+  p.spaced Hi #{client.name},
+  p.spaced Please find the following invoice for your #{product.name} membership, for $#{amount}.
+  p.spaced Payment is due on #[span.bold #{deadline}]. Click below to send your payment confirmation. If you have any questions about your invoice, please contact us. 
+  a.centered(href=url target="_blank") 
+    button.spaced Confirm Payment
+  br 
+  p Kindest regards,
+  p -Cacao's Team 
+
+

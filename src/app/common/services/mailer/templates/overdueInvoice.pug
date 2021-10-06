@@ -1,0 +1,12 @@
+extends layout.pug 
+
+block content
+  p.spaced Hi #{client.name},
+  p.spaced We are afraid to inform you your invoice for your #{product.name} membership is overdue. However, the payment remains at $#{amount}.
+  p.spaced Payment was to be received from #[span.bold #{startDate} to #{deadline}]. Please click below to send your payment confirmation, or otherwise, your product membership will be canceled. If you have any questions about your invoice, please contact us. 
+  a.centered(href=url target="_blank") 
+    button.spaced Confirm Payment
+  br 
+  p Kindest regards,
+  p -Cacao's Team 
+
