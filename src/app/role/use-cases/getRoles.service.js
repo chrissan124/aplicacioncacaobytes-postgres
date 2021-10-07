@@ -7,9 +7,13 @@ class getRolesService {
       include: ['Permissions'],
       ...options,
     })
-    return roles.rows.map((role) => {
+    const mapped = roles.rows.map((role) => {
       return this.mapRole(role)
     })
+    return {
+      rows: mapped,
+      count: mapped.length,
+    }
   }
   async getRoles(options) {
     return await this.roleRepository.getAll({
