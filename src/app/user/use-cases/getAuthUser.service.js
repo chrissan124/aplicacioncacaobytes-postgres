@@ -17,6 +17,7 @@ module.exports = class getAuthUserService {
           firstName: foundUser.firstName,
           phone: foundUser.phone,
           lastName: foundUser.lastName,
+          roleFk: role.roleId,
           permissions: role.Permissions,
         },
       }

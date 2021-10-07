@@ -49,7 +49,9 @@ class Bootstrap {
         },
       }
     )
-    container.register({ bus: asValue(bus(container)) })
+    const busInstance = bus(container)
+    busInstance.emit('dbSynced')
+    container.register({ bus: asValue(busInstance) })
     return container
   }
 }

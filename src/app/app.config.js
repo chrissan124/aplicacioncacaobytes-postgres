@@ -2,7 +2,13 @@ const dotenv = require('dotenv')
 
 dotenv.config()
 
-const freeRoutes = ['auth/access', 'perms', 'statuses', 'api-status']
+const freeRoutes = [
+  'auth/access',
+  'perms',
+  'statuses',
+  'api-status',
+  'setup-user',
+]
 
 class AppConfig {
   constructor() {

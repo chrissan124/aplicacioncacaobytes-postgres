@@ -10,7 +10,7 @@ module.exports = class registerUserService {
     this.bus = bus
   }
 
-  async registerUser(user) {
+  async registerUser(user, emit = true) {
     userEntity(user)
     let password = ''
     if (!user.password) {
@@ -19,7 +19,7 @@ module.exports = class registerUserService {
     }
     user.password = await encryptPassword(user.password)
     const result = await this.userRepository.create(user)
-    if (result) this.bus.emit('userRegistered', { ...user, password })
+    if (result && emit) this.bus.emit('userRegistered', { ...user, password })
     return result
   }
 }

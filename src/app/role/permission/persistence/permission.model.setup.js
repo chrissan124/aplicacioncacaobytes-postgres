@@ -1,6 +1,3 @@
-const setPermissions = require('./permission.config')
-const setRoles = require('./role_permission.config')
-
 module.exports = function setupModel(db) {
   const { Role, Permission } = db.models
 
@@ -16,7 +13,9 @@ module.exports = function setupModel(db) {
     otherKey: 'roleFk',
     timestamps: false,
   })
+  /*
   setPermissions(db, Permission).then(() => {
     setRoles(db)
   })
+*/
 }
