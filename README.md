@@ -22,7 +22,9 @@ npm i
   You should follow `.env.example` to see required variables
 
 - Setup first user:
+
   When setting up from scratch, you have to create your first user:
+
   1. Create a `user.json` file with your user data inside src. _(there's a `user.json.example` file to copy its format)_
   2. Make a request to `/setup-user`
   3. Check the response to see if the result is successful, otherwise an error message will be displayed.
