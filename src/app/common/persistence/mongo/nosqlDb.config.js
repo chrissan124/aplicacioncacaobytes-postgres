@@ -19,10 +19,10 @@ async function configNosqlDb(attempts = 1) {
     return nosqlDb
   } catch (error) {
     logger.error(
-      `Error connecting to mongo DB (attemp #${attempts}) [${error.message}]`
+      `Error connecting to mongo DB (attempt #${attempts}) [${error.message}]`
     )
     attempts += 1
-    configNosqlDb(attempts)
+    await configNosqlDb(attempts)
   }
 }
 

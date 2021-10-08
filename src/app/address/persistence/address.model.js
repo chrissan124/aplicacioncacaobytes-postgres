@@ -10,6 +10,10 @@ function makeModel(apiDb) {
       type: DataTypes.STRING(100),
       allowNull: true,
     },
+    zipCode: {
+      type: DataTypes.STRING(5),
+      allowNull: false,
+    },
     city: {
       type: DataTypes.STRING(100),
       allowNull: false,
