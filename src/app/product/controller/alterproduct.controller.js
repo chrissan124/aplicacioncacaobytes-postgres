@@ -1,5 +1,5 @@
 const { createController } = require('awilix-express')
-const NotFoundError = require('../../common/controllers/error-handling/NotFoundError')
+const NotFoundError = require('../../common/controllers/error-handling/notFoundError')
 const UpdateError = require('../../common/controllers/error-handling/updateError')
 
 const ValidationException = require('../../common/domain/validationException')

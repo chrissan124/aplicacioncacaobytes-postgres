@@ -1,4 +1,4 @@
-const NotFoundError = require('../../common/controllers/error-handling/NotFoundError')
+const NotFoundError = require('../../common/controllers/error-handling/notFoundError')
 const ValidationException = require('../../common/domain/validationException')
 
 class deleteRoleService {
